@@ -21,7 +21,7 @@ function showPosition(position) {
         let url1 = "http://openweathermap.org/img/w/"+data.weather[0].icon+".png";
         $('#image').html('<img src="http://openweathermap.org/img/w/'+data.weather[0].icon+'.png" height="100px" width="100px">');
 
-        $('#value').text(data.main.temp-273.15);
+        $('#value').text(Math.round(data.main.temp-273.15));
     })
 
 }
