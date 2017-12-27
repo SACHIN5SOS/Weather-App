@@ -4,24 +4,24 @@ let lat;
 function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition, showError);
-    } else { 
+    } else {
         x.innerHTML = "Geolocation is not supported by this browser.";
     }
 }
 
 function showPosition(position) {
-   
+
      long = position.coords.longitude;
      lat = position.coords.latitude;
-    x.innerHTML = "Latitude: " + position.coords.latitude + 
-    "<br>Longitude: " + position.coords.longitude;
+    // x.innerHTML = "Latitude: " + position.coords.latitude +
+    // "<br>Longitude: " + position.coords.longitude;
     var url= "http://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+long+"&appid=25298949385287212cc8437a4005ec84";
     console.log(url) ;
     $.getJSON(url,function(data){
-        
-        console.log(data.main.temp-273.15);
-        $('#weather').append(data.main.temp-273.15).css({'color':'white','font-weight':'strong'});
-        $('body').css({'background-image':'url(https://images.unsplash.com/photo-1507697364665-69eec30ea71e?auto=format&fit=crop&w=751&q=80.jpg)','background-size':'cover','background-repeat':'no-repeat'})
+        let url1 = "http://openweathermap.org/img/w/"+data.weather[0].icon+".png";
+        $('#image').html('<img src="http://openweathermap.org/img/w/'+data.weather[0].icon+'.png" height="100px" width="100px">');
+
+        $('#value').text(data.main.temp-273.15);
     })
 
 }
@@ -42,5 +42,3 @@ function showError(error) {
             break;
     }
 }
-
-

@@ -6,14 +6,49 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+<style>
+  body{
+    background: #232526;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    height: 100vh;
+  }
+  .btn{
+    outline: none;
+    border:none;
+    text-transform: uppercase;
+    background-color: #D32F2F;
+    padding: 2% 4%;
+    color:#ffffff;
+    cursor:pointer;
+    font-family:Ubuntu;
+    font-size:15px;
+    letter-spacing: 0.1em;
+    border-radius: 30px;
+    box-shadow:0 6px #B71C1C;
+    display:block;
+    position: relative;
+}
+.btn:hover{
+  top:2px;
+  box-shadow:0 4px #B71C1C;
+}
+.btn:active{
+    top:6px;
+    box-shadow:0 0px #B71C1C;
+}
+</style>
 <body>
-    <p>Click the button to get your coordinates.</p>
-    
-    <button onclick="getLocation()">Try It</button>
-    
-    <p id="demo"></p>
-    <p id="weather" style="color:black; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-weight:bolder;"> Temparature:  </p>
-    
+  <center>
+    <p style="font-size:20px; color:#ffff; ">Current Weather</p>
+
+    <button class="btn" onclick="getLocation()">Check Your Weather</button>
+
+    <p id="demo" style="color:#ffff; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-weight:bolder; font-size:30px; verticle-align:center;"></p>
+    <p  style="color:#ffff; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-weight:bolder; font-size:30px; verticle-align:center;"><span id="image"></span>  <span id="value"></span>&#x2103;  </p>
+
+  </center>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="app.js"></script>
 
