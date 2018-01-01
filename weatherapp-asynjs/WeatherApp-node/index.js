@@ -1,6 +1,22 @@
 var request = require('request');
+const yargs = require('yargs');
+const argv= yargs
+.options({
+    a: {
+        demand : true,
+        alias: 'address',
+        describe: 'Adress to fetch wether to',
+        string: true
+    }
+})
+.help()
+.alias('help','h')
+.argv;
+var encodedAddress= encodeURIComponent(argv.address);
+var url= 'https://maps.googleapis.com/maps/api/geocode/json?address='+encodedAddress;
+console.log(url);
 request({
-   url : 'https://maps.googleapis.com/maps/api/geocode/json?address=%20Bsf%20camp%20Indore' ,
+   url : 'https://maps.googleapis.com/maps/api/geocode/json?address='+encodedAddress ,
    json:true
 },(error,response,body)=> {
     // console.log(JSON.stringify(body,undefined,2));  //to check all objects 
