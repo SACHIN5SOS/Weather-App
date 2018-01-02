@@ -23,7 +23,12 @@ geocode.geoAddress(argv.address,(error,results)=>{
         let lat=results.latitude;
         let long= results.longitude;
         console.log(lat,long);
-
+        request({
+            url : "https://api.darksky.net/forecast/ef9fea25361db109862704601da8d480/"+lat+","+long   ,
+            json : true
+        },(error,Response,body)=> {
+        console.log((body.currently.temperature-32)*5/9);
+        });
     }
 });
 
