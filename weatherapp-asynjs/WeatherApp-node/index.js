@@ -20,5 +20,12 @@ geocode.geoAddress(argv.address,(error,results)=>{
     }
     else{
         console.log(JSON.stringify(results,undefined,2));
+        let lat=results.latitude;
+        let long= results.longitude;
+        console.log(lat,long);
+
     }
 });
+
+
+
